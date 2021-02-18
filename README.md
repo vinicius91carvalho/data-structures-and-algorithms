@@ -11,7 +11,6 @@ Baseado no livro [Estruturas de Dados e Algoritmos com JavaScript: Escreva um CÃ
 * Praticar o uso de TDD
 * Implementar os algoritmos do livro usando TypeScript
 
-
 ## Algoritmos
 
 * Fibonacci de forma imperativa
