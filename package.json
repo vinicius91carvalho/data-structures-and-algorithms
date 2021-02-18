@@ -8,8 +8,7 @@
     "test:watch": "npm test -- --watch",
     "test:ci": "npm test -- --coverage",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
-    "test:mutation": "npx stryker run",
-    "test:all": "npm run test:ci && npm run test:mutation"
+    "test:mutation": "npx stryker run"
   },
   "keywords": [],
   "author": "Vinicius Carvalho <vinicius91carvalho@gmail.com>",
