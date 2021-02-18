@@ -5,7 +5,9 @@
   "scripts": {
     "start": "sucrase-node $1",
     "test": "jest --passWithNoTests --runInBand --no-cache",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "test:ci": "npm test -- --coverage",
+    "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info"
   },
   "keywords": [],
   "author": "Vinicius Carvalho <vinicius91carvalho@gmail.com>",
@@ -13,13 +15,14 @@
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
-    "git-commit-msg-linter": "^3.0.0",
+    "coveralls": "^3.1.0",
     "eslint": "^7.20.0",
     "eslint-config-standard-with-typescript": "^20.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "4.3.1",
     "eslint-plugin-react": "^7.22.0",
+    "git-commit-msg-linter": "^3.0.0",
     "husky": "^5.0.9",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.4",
