@@ -1,4 +1,12 @@
-export const fibonacci = (n: number): number => {
+export const fibonacci = (n: number): number | Error => {
+  if (n < 0) {
+    return new Error('The value must be positive')
+  }
+
+  if (n < 3) {
+    return n
+  }
+
   const sequence = []
   sequence[1] = 1
   sequence[2] = 1
