@@ -14,3 +14,15 @@ Baseado no livro [Estruturas de Dados e Algoritmos com JavaScript: Escreva um CÃ
 ## Algoritmos
 
 * Fibonacci de forma imperativa
+
+# Ferramentas
+
+* TypeScript
+* ESLint
+* Jest
+* Stryker Mutator
+* Editor Config
+* Husky
+* Lint Staged
+* Travis
+* Coveralls
