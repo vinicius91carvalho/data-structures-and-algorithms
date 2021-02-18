@@ -1,6 +1,6 @@
 const { resolve } = require('path')
 
-module.exports = () => ({
+module.exports = {
   $schema: './node_modules/@stryker-mutator/core/schema/stryker-schema.json',
   plugins: [resolve(__dirname, 'node_modules/@stryker-mutator/jest-runner')],
   packageManager: 'npm',
@@ -21,4 +21,4 @@ module.exports = () => ({
     enableFindRelatedTests: true
   },
   coverageAnalysis: 'perTest'
-})
+}

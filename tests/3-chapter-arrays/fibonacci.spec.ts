@@ -15,4 +15,9 @@ describe('Imperative Fibonacci', () => {
     const result = fibonacci(-1)
     expect(result).toEqual(new Error('The value must be positive'))
   })
+
+  test('Should check if fibonacci of 3 returns 2', () => {
+    const result = fibonacci(3)
+    expect(result).toBe(2)
+  })
 })
