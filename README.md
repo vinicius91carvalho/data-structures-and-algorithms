@@ -6,8 +6,9 @@ Baseado no livro [Estruturas de Dados e Algoritmos com JavaScript: Escreva um CÃ
 
 ## Proposta
 
-* Implementar os algoritmos usando TypeScript
-* Escrever os algoritmos utilizando TDD
+* Praticar o uso de TDD
+* Implementar os algoritmos do livro usando TypeScript
+
 
 ## Algoritmos
 
