@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "git-commit-msg-linter": "^3.0.0"
+    "git-commit-msg-linter": "^3.0.0",
+    "husky": "^5.0.9",
+    "lint-staged": "^10.5.4"
   }
 }
