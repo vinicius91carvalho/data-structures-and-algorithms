@@ -1,3 +1,5 @@
+[![Build Status](https://www.travis-ci.com/vinicius91carvalho/loiane-groner-estrutura-de-dados-e-algoritmos.svg?branch=master)](https://www.travis-ci.com/vinicius91carvalho/loiane-groner-estrutura-de-dados-e-algoritmos)
+[![Coverage Status](https://coveralls.io/repos/github/vinicius91carvalho/loiane-groner-estrutura-de-dados-e-algoritmos/badge.svg?branch=master)](https://coveralls.io/github/vinicius91carvalho/loiane-groner-estrutura-de-dados-e-algoritmos?branch=master)
 # Estruturas de Dados e Algoritmos com TypeScript
 
 Baseado no livro [Estruturas de Dados e Algoritmos com JavaScript: Escreva um Código JavaScript Complexo e Eficaz Usando a Mais Recente ECMAScript](https://www.amazon.com.br/Estruturas-Dados-Algoritmos-Com-Javascript/dp/8575226932) da autora [Loiane Groner](https://loiane.com)
