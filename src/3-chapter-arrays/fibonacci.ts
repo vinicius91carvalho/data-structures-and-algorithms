@@ -1,9 +1,7 @@
 export const fibonacci = (n: number): number | Error => {
   if (n < 0) {
     return new Error('The value must be positive')
-  }
-
-  if (n < 3) {
+  } else if (n < 3) {
     return n
   }
 
