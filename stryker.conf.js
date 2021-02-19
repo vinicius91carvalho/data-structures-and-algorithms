@@ -9,7 +9,8 @@ module.exports = {
   ],
   reporters: [
     'html',
-    'progress'
+    'progress',
+    'dashboard'
   ],
   testRunner: 'jest',
   jest: {
