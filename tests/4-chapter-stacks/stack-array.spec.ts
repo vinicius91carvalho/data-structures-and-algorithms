@@ -56,5 +56,12 @@ describe('Stack Array', () => {
       sut.peek()
       expect(fakeData).toEqual([1, 2, 3, 4])
     })
+
+    test('Should return empty if stack is empty', () => {
+      const fakeData: [] = []
+      const sut = makeSut(fakeData)
+      const element = sut.peek()
+      expect(element).toEqual(undefined)
+    })
   })
 })
