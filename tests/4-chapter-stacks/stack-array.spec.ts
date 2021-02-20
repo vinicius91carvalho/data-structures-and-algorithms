@@ -1,33 +1,44 @@
 import { StackArray } from '@/4-chapter-stacks/stack-array'
+import faker from 'faker'
 
 const makeSut = (initialData?: any[]): StackArray => new StackArray(initialData)
+
+const makeFakeArray = (isLastAnObject: boolean = false): any[] => ([
+  faker.random.number(),
+  faker.random.word(),
+  isLastAnObject ? faker.helpers.createCard() : faker.random.number()
+])
 
 describe('Stack Array', () => {
   describe('push()', () => {
     test('Should add a new element on top of the stack', () => {
+      const number = faker.random.number()
       const sut = makeSut()
-      sut.push(1)
-      expect(sut.getItems()).toContain(1)
+      sut.push(number)
+      expect(sut.getItems()).toContain(number)
     })
 
     test('Should add elements on top of the stack', () => {
+      const fakeData = makeFakeArray()
       const sut = makeSut()
-      sut.push(1, 2, 3)
-      expect(sut.getItems()).toEqual([1, 2, 3])
+      sut.push(...fakeData)
+      expect(sut.getItems()).toEqual(fakeData)
     })
   })
 
   describe('pop()', () => {
     test('Should remove an element on top of the stack', () => {
-      const sut = makeSut([1, 2, 3, 4])
+      const fakeData = makeFakeArray()
+      const sut = makeSut(fakeData)
       sut.pop()
-      expect(sut.getItems()).toEqual([1, 2, 3])
+      expect(sut.getItems()).toEqual([fakeData[0], fakeData[1]])
     })
 
     test('Should return the element removed', () => {
-      const sut = makeSut([1, 2, 3, 4])
+      const fakeData = makeFakeArray(true)
+      const sut = makeSut(fakeData)
       const element = sut.pop()
-      expect(element).toEqual(4)
+      expect(element).toEqual(fakeData[fakeData.length - 1])
     })
 
     test('Should return undefined if array is empty', () => {
@@ -39,13 +50,14 @@ describe('Stack Array', () => {
 
   describe('peek()', () => {
     test('Should return the element on top of the stack', () => {
-      const sut = makeSut([1, 2, 3, 4])
+      const fakeData = makeFakeArray()
+      const sut = makeSut(fakeData)
       const element = sut.peek()
-      expect(element).toEqual(4)
+      expect(element).toEqual(fakeData[fakeData.length - 1])
     })
 
     test('Should not change the stack', () => {
-      const fakeData: number[] = [1, 2, 3, 4]
+      const fakeData = makeFakeArray()
       const sut = makeSut(fakeData)
       sut.peek()
       expect(sut.getItems()).toEqual(fakeData)
@@ -66,7 +78,7 @@ describe('Stack Array', () => {
     })
 
     test('Should return false if stack is not empty', () => {
-      const sut = makeSut([1])
+      const sut = makeSut(makeFakeArray())
       const isStackEmpty = sut.isEmpty()
       expect(isStackEmpty).toEqual(false)
     })
@@ -74,7 +86,7 @@ describe('Stack Array', () => {
 
   describe('clear()', () => {
     test('Should remove all elements of the stack', () => {
-      const sut = makeSut([1, 2, 3, 4])
+      const sut = makeSut(makeFakeArray())
       sut.clear()
       expect(sut.getItems().length).toBe(0)
     })
@@ -82,9 +94,10 @@ describe('Stack Array', () => {
 
   describe('size()', () => {
     test('Should return the number of elements in the stack', () => {
-      const sut = makeSut([1, 2, 3, 4])
+      const fakeData = makeFakeArray(true)
+      const sut = makeSut(fakeData)
       sut.size()
-      expect(sut.getItems().length).toBe(4)
+      expect(sut.getItems().length).toBe(fakeData.length)
     })
   })
 })
