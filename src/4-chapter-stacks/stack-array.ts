@@ -12,4 +12,8 @@ export class StackArray {
   peek (): any {
     return this.data[this.data.length - 1]
   }
+
+  isEmpty (): boolean {
+    return this.data.length === 0
+  }
 }
