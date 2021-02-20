@@ -6,6 +6,6 @@ export class StackArray {
   }
 
   pop (): void {
-    this.data.pop()
+    return this.data.pop()
   }
 }
