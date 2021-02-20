@@ -64,4 +64,13 @@ describe('Stack Array', () => {
       expect(element).toEqual(undefined)
     })
   })
+
+  describe('isEmtpy()', () => {
+    test('Should return true if stack is empty', () => {
+      const fakeData: [] = []
+      const sut = makeSut(fakeData)
+      const isStackEmpty = sut.isEmpty()
+      expect(isStackEmpty).toEqual(true)
+    })
+  })
 })
