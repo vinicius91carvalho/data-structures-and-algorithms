@@ -1,6 +1,6 @@
 {
   "name": "loiane-groner-estrutura-de-dados-e-algoritmos",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Study of algorithms by the book of Loiane Groner",
   "scripts": {
     "start": "sucrase-node $1",
