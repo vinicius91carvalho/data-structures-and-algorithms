@@ -26,5 +26,12 @@ describe('Stack Array', () => {
       sut.pop()
       expect(fakeData).toEqual([1, 2, 3])
     })
+
+    test('Should return the element removed', () => {
+      const fakeData: number[] = [1, 2, 3, 4]
+      const sut = makeSut(fakeData)
+      const element = sut.pop()
+      expect(element).toEqual(4)
+    })
   })
 })
