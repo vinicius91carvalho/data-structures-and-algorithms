@@ -41,6 +41,15 @@ describe('Stack Array', () => {
       expect(element).toEqual(fakeData[fakeData.length - 1])
     })
 
+    test('Should not return the reference of the element removed', () => {
+      const fakeData = makeFakeArray(true)
+      const sut = makeSut(fakeData)
+      const element = sut.pop()
+      expect(element).toEqual(fakeData[fakeData.length - 1])
+      expect(element).not.toBe(fakeData[fakeData.length - 1])
+      expect(typeof element).toBe('object')
+    })
+
     test('Should return undefined if array is empty', () => {
       const sut = makeSut()
       const element = sut.pop()
@@ -67,6 +76,15 @@ describe('Stack Array', () => {
       const sut = makeSut()
       const element = sut.peek()
       expect(element).toEqual(undefined)
+    })
+
+    test('Should not return the reference of the element removed', () => {
+      const fakeData = makeFakeArray(true)
+      const sut = makeSut(fakeData)
+      const element = sut.peek()
+      expect(element).toEqual(fakeData[fakeData.length - 1])
+      expect(element).not.toBe(fakeData[fakeData.length - 1])
+      expect(typeof element).toBe('object')
     })
   })
 
