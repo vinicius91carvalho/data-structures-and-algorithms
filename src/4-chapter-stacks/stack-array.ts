@@ -1,5 +1,5 @@
 export class StackArray {
-  private readonly items: any[]
+  private items: any[]
 
   constructor (initialData?: any[]) {
     this.items = initialData ? [...initialData] : []
@@ -25,6 +25,10 @@ export class StackArray {
 
   isEmpty (): boolean {
     return this.items.length === 0
+  }
+
+  clear (): void {
+    this.items = []
   }
 
   getItems (): any[] {
