@@ -34,4 +34,20 @@ describe('Stack Array', () => {
       expect(element).toEqual(4)
     })
   })
+
+  describe('peek()', () => {
+    test('Should return the element on top of the stack', () => {
+      const fakeData: number[] = [1, 2, 3, 4]
+      const sut = makeSut(fakeData)
+      const element = sut.peek()
+      expect(element).toEqual(4)
+    })
+
+    test('Should not change the stack', () => {
+      const fakeData: number[] = [1, 2, 3, 4]
+      const sut = makeSut(fakeData)
+      sut.peek()
+      expect(fakeData).toEqual([1, 2, 3, 4])
+    })
+  })
 })
