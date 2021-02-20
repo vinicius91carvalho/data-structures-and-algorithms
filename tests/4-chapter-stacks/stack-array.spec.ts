@@ -71,4 +71,12 @@ describe('Stack Array', () => {
       expect(isStackEmpty).toEqual(false)
     })
   })
+
+  describe('clear()', () => {
+    test('Should remove all elements of the stack', () => {
+      const sut = makeSut([1, 2, 3, 4])
+      sut.clear()
+      expect(sut.getItems().length).toBe(0)
+    })
+  })
 })
