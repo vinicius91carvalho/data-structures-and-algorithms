@@ -5,10 +5,6 @@ export class StackArray {
     this.items = initialData ? [...initialData] : []
   }
 
-  private clone (data: any): any {
-    return (typeof data === 'object') ? { ...data } : data
-  }
-
   push (...items: any[]): void {
     this.items.push(...items)
   }
@@ -27,11 +23,19 @@ export class StackArray {
     return this.items.length === 0
   }
 
+  size (): number {
+    return this.items.length
+  }
+
   clear (): void {
     this.items = []
   }
 
   getItems (): any[] {
     return [...this.items]
+  }
+
+  private clone (data: any): any {
+    return (typeof data === 'object') ? { ...data } : data
   }
 }
