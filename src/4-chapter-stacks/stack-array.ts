@@ -10,6 +10,6 @@ export class StackArray {
   }
 
   peek (): any {
-    return this.data.pop()
+    return this.data[this.data.length - 1]
   }
 }
