@@ -4,4 +4,8 @@ export class StackArray {
   push (...items: any[]): void {
     this.data.push(...items)
   }
+
+  pop (): void {
+    this.data.pop()
+  }
 }
