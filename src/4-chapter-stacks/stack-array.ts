@@ -5,7 +5,11 @@ export class StackArray {
     this.data.push(...items)
   }
 
-  pop (): void {
+  pop (): any {
+    return this.data.pop()
+  }
+
+  peek (): any {
     return this.data.pop()
   }
 }
