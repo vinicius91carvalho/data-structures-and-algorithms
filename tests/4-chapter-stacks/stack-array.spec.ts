@@ -94,10 +94,9 @@ describe('Stack Array', () => {
 
   describe('size()', () => {
     test('Should return the number of elements in the stack', () => {
-      const fakeData = makeFakeArray(true)
+      const fakeData = makeFakeArray()
       const sut = makeSut(fakeData)
-      sut.size()
-      expect(sut.getItems().length).toBe(fakeData.length)
+      expect(sut.size()).toBe(fakeData.length)
     })
   })
 })
