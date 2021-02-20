@@ -33,6 +33,13 @@ describe('Stack Array', () => {
       const element = sut.pop()
       expect(element).toEqual(4)
     })
+
+    test('Should return undefined if array is empty', () => {
+      const fakeData: [] = []
+      const sut = makeSut(fakeData)
+      const element = sut.pop()
+      expect(element).toEqual(undefined)
+    })
   })
 
   describe('peek()', () => {
