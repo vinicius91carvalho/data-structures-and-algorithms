@@ -1,3 +1,4 @@
+import { clone } from '@/helpers/util'
 export class StackArray {
   private items: any[]
 
@@ -11,12 +12,12 @@ export class StackArray {
 
   pop (): any {
     const item = this.items.pop()
-    return this.clone(item)
+    return clone(item)
   }
 
   peek (): any {
     const item = this.items[this.items.length - 1]
-    return this.clone(item)
+    return clone(item)
   }
 
   isEmpty (): boolean {
@@ -33,9 +34,5 @@ export class StackArray {
 
   getItems (): any[] {
     return [...this.items]
-  }
-
-  private clone (data: any): any {
-    return (typeof data === 'object') ? { ...data } : data
   }
 }
