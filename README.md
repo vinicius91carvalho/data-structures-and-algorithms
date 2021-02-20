@@ -10,7 +10,9 @@ Baseado no livro [Estruturas de Dados e Algoritmos com JavaScript: Escreva um CÃ
 ## Proposta
 
 * Praticar o uso de TDD
+* Praticar o uso de SOLID
 * Implementar os algoritmos do livro usando TypeScript
+* Aplicar conceitos de Clean Code do livro de mesmo nome de Robert C. Martin
 
 ## Algoritmos
 
@@ -27,3 +29,4 @@ Baseado no livro [Estruturas de Dados e Algoritmos com JavaScript: Escreva um CÃ
 * Lint Staged
 * Travis
 * Coveralls
+* Faker
