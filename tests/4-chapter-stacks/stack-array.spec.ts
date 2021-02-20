@@ -3,6 +3,11 @@ import { StackArray } from '@/4-chapter-stacks/stack-array'
 const makeSut = (initialData: any[]): StackArray => new StackArray(initialData)
 
 describe('Stack Array', () => {
+  test('Should not allow create a StackArray with null', () => {
+    const nullRef: any = null
+    expect(() => { makeSut(nullRef) }).toThrowError()
+  })
+
   describe('push()', () => {
     test('Should add a new element on top of the stack', () => {
       const fakeData: [] = []
