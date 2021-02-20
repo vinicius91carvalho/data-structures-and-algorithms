@@ -1,5 +1,9 @@
 export class StackArray {
-  constructor (private readonly data: any[]) {}
+  constructor (private readonly data: any[]) {
+    if (!data) {
+      throw new Error('The data cannot be falsy')
+    }
+  }
 
   push (...items: any[]): void {
     this.data.push(...items)
