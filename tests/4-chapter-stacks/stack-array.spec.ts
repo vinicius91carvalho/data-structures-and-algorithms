@@ -79,4 +79,12 @@ describe('Stack Array', () => {
       expect(sut.getItems().length).toBe(0)
     })
   })
+
+  describe('size()', () => {
+    test('Should return the number of elements in the stack', () => {
+      const sut = makeSut([1, 2, 3, 4])
+      sut.size()
+      expect(sut.getItems().length).toBe(4)
+    })
+  })
 })
