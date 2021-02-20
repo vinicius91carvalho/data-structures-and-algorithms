@@ -1,23 +1,33 @@
 export class StackArray {
-  constructor (private readonly data: any[]) {
-    if (!data) {
-      throw new Error('The data cannot be falsy')
-    }
+  private readonly items: any[]
+
+  constructor (initialData?: any[]) {
+    this.items = initialData ? [...initialData] : []
+  }
+
+  private clone (data: any): any {
+    return (typeof data === 'object') ? { ...data } : data
   }
 
   push (...items: any[]): void {
-    this.data.push(...items)
+    this.items.push(...items)
   }
 
   pop (): any {
-    return this.data.pop()
+    const item = this.items.pop()
+    return this.clone(item)
   }
 
   peek (): any {
-    return this.data[this.data.length - 1]
+    const item = this.items[this.items.length - 1]
+    return this.clone(item)
   }
 
   isEmpty (): boolean {
-    return this.data.length === 0
+    return this.items.length === 0
+  }
+
+  getItems (): any[] {
+    return [...this.items]
   }
 }
