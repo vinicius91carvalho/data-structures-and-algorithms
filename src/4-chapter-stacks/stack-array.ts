@@ -1,5 +1,6 @@
 import { Stack } from '@/4-chapter-stacks/stack-protocols'
 import { clone } from '@/helpers/util'
+
 export class StackArray implements Stack {
   private items: any[]
 
