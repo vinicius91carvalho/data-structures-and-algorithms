@@ -13,6 +13,7 @@ Baseado no livro [Estruturas de Dados e Algoritmos com JavaScript: Escreva um C�
 * Praticar o uso de SOLID
 * Implementar os algoritmos do livro usando TypeScript
 * Aplicar conceitos de Clean Code do livro de mesmo nome de Robert C. Martin
+* Utilizar uma ferramenta de testes de mutação para previnir erros na escrita dos testes e garantir que todos foram escritos 👌🏾
 
 ## Algoritmos
 
