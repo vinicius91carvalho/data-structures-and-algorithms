@@ -13,6 +13,7 @@
         "@typescript-eslint/restrict-template-expressions": "off",
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-dynamic-delete": "off",
         "import/export": "off"
     }
 }
