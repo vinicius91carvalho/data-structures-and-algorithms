@@ -1,15 +1,5 @@
 import { DecimalToBinary } from '@/4-chapter-stacks/decimal-to-binary'
-import { PushItems } from '@/4-chapter-stacks/stacks/stack-protocols'
-
-class StackPushSpy implements PushItems {
-  allItems: any[] = []
-  callsCount: number = 0
-
-  push (...items: any[]): void {
-    this.allItems.push(...items)
-    this.callsCount++
-  }
-}
+import { StackPushSpy } from '@/tests/4-chapter-stacks/mocks/mock-stack'
 
 interface SutTypes {
   sut: DecimalToBinary
