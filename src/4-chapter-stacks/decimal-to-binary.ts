@@ -4,6 +4,6 @@ export class DecimalToBinary {
   }
 
   calcQuotient (dividend: number): number {
-    return dividend / 2
+    return Math.floor(dividend / 2)
   }
 }
