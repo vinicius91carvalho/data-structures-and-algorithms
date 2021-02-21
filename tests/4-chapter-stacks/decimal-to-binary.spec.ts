@@ -1,17 +1,20 @@
 import { DecimalToBinary } from '@/4-chapter-stacks/decimal-to-binary'
-import { StackPushSpy } from '@/tests/4-chapter-stacks/mocks/mock-stack'
+import { StackPopSpy, StackPushSpy } from '@/tests/4-chapter-stacks/mocks/mock-stack'
 
 interface SutTypes {
   sut: DecimalToBinary
   stackPushSpy: StackPushSpy
+  stackPopSpy: StackPopSpy
 }
 
 const makeSut = (): SutTypes => {
+  const stackPopSpy = new StackPopSpy()
   const stackPushSpy = new StackPushSpy()
-  const sut = new DecimalToBinary(stackPushSpy)
+  const sut = new DecimalToBinary(stackPushSpy, stackPopSpy)
   return {
     sut,
-    stackPushSpy
+    stackPushSpy,
+    stackPopSpy
   }
 }
 
@@ -45,11 +48,18 @@ describe('DecimalToBinary', () => {
   })
 
   describe('calc()', () => {
-    test('Should fill stackSpy with correct values', () => {
+    test('Should fill stackPushSpy with correct values', () => {
       const { sut, stackPushSpy } = makeSut()
       sut.calc(10)
       expect(stackPushSpy.allItems).toEqual([0, 1, 0, 1])
       expect(stackPushSpy.callsCount).toBe(4)
+    })
+
+    test('Should fill stackPopSpy with correct values', () => {
+      const { sut, stackPopSpy } = makeSut()
+      sut.calc(10)
+      expect(stackPopSpy.callsCount).toBe(5)
+      expect(stackPopSpy.allItems).toEqual([])
     })
   })
 })

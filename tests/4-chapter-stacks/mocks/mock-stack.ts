@@ -1,4 +1,4 @@
-import { PushItems } from '@/4-chapter-stacks/stacks/stack-protocols'
+import { PopItem, PushItems } from '@/4-chapter-stacks/stacks/stack-protocols'
 
 export class StackPushSpy implements PushItems {
   allItems: any[] = []
@@ -7,5 +7,15 @@ export class StackPushSpy implements PushItems {
   push (...items: any[]): void {
     this.allItems.push(...items)
     this.callsCount++
+  }
+}
+
+export class StackPopSpy implements PopItem {
+  allItems: any[] = [1, 0, 1, 0]
+  callsCount: number = 0
+
+  pop (): any {
+    this.callsCount++
+    return this.allItems.pop()
   }
 }
