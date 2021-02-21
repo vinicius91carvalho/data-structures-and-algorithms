@@ -19,6 +19,7 @@ This repo is based on [Estruturas de Dados e Algoritmos com JavaScript: Escreva 
 
 * Imperative Fibonacci
 * Stack using an array
+* Stack using an object
 
 # Tools
 
