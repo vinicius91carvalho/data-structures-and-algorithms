@@ -1,4 +1,4 @@
-import { Stack } from '@/4-chapter-stacks/stack-protocols'
+import { Stack } from '@/4-chapter-stacks/stacks/stack-protocols'
 import { clone } from '@/helpers/util'
 
 export class StackObject implements Stack {

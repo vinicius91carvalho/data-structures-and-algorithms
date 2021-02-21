@@ -1,8 +1,8 @@
-import { Stack } from '@/4-chapter-stacks/stack-protocols'
-import { StackArray } from '@/4-chapter-stacks/stack-array'
+import { StackObject } from '@/4-chapter-stacks/stacks/stack-object'
+import { Stack } from '@/4-chapter-stacks/stacks/stack-protocols'
 import faker from 'faker'
 
-const makeSut = (initialData?: any[]): Stack => new StackArray(initialData)
+const makeSut = (initialData?: any[]): Stack => new StackObject(initialData)
 
 const makeFakeArray = (isLastAnObject: boolean = false): any[] => ([
   faker.random.number(),
