@@ -1,7 +1,10 @@
-import { PushItems } from '@/4-chapter-stacks/stacks/stack-protocols'
+import { PopItem, PushItems } from '@/4-chapter-stacks/stacks/stack-protocols'
 
 export class DecimalToBinary {
-  constructor (private readonly pushItems: PushItems) {}
+  constructor (
+    private readonly pushItems: PushItems,
+    private readonly popItem: PopItem
+  ) {}
 
   calcRest (dividend: number): number {
     return dividend % 2
@@ -18,5 +21,11 @@ export class DecimalToBinary {
       this.pushItems.push(rest)
       dividend = this.calcQuotient(dividend)
     }
+    let item: any
+    let valueConverted: string = ''
+    do {
+      item = this.popItem.pop()
+      valueConverted = item ? `${valueConverted}${item}` : valueConverted
+    } while (item !== undefined)
   }
 }
