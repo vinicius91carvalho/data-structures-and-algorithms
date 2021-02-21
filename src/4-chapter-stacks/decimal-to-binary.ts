@@ -1,5 +1,5 @@
 export class DecimalToBinary {
   calcRest (dividend: number): number {
-    return 0
+    return dividend % 2
   }
 }
