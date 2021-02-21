@@ -1,12 +1,29 @@
 import { DecimalToBinary } from '@/4-chapter-stacks/decimal-to-binary'
+import { PushItems } from '@/4-chapter-stacks/stacks/stack-protocols'
+
+class StackPushSpy implements PushItems {
+  allItems: any[] = []
+  callsCount: number = 0
+
+  push (...items: any[]): void {
+    this.allItems.push(...items)
+    this.callsCount++
+  }
+}
 
 interface SutTypes {
   sut: DecimalToBinary
+  stackPushSpy: StackPushSpy
 }
 
-const makeSut = (): SutTypes => ({
-  sut: new DecimalToBinary()
-})
+const makeSut = (): SutTypes => {
+  const stackPushSpy = new StackPushSpy()
+  const sut = new DecimalToBinary(stackPushSpy)
+  return {
+    sut,
+    stackPushSpy
+  }
+}
 
 describe('DecimalToBinary', () => {
   describe('calcRest()', () => {
@@ -34,6 +51,15 @@ describe('DecimalToBinary', () => {
       const { sut } = makeSut()
       const quotient = sut.calcQuotient(5)
       expect(quotient).toBe(2)
+    })
+  })
+
+  describe('calc()', () => {
+    test('Should fill stackSpy with correct values', () => {
+      const { sut, stackPushSpy } = makeSut()
+      sut.calc(10)
+      expect(stackPushSpy.allItems).toEqual([0, 1, 0, 1])
+      expect(stackPushSpy.callsCount).toBe(4)
     })
   })
 })
