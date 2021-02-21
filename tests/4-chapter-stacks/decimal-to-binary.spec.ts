@@ -21,5 +21,11 @@ describe('DecimalToBinary', () => {
       const quotient = decimalToBinary.calcQuotient(10)
       expect(quotient).toBe(5)
     })
+
+    test('Should return the quotient correctly for the number 5', () => {
+      const decimalToBinary = new DecimalToBinary()
+      const quotient = decimalToBinary.calcQuotient(5)
+      expect(quotient).toBe(2)
+    })
   })
 })
