@@ -85,6 +85,7 @@ module.exports = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
+    '@/tests/(.*)': '<rootDir>/tests/$1',
     '@/(.*)': '<rootDir>/src/$1'
   },
 
@@ -152,7 +153,7 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    '**/tests/**/*.ts'
+    '**/tests/**/*.spec.ts'
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
