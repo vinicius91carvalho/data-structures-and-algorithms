@@ -14,18 +14,19 @@ export class DecimalToBinary {
     return Math.floor(dividend / 2)
   }
 
-  calc (value: number): void {
+  calc (value: number): string {
     let dividend = value
     while (dividend > 0) {
       const rest = this.calcRest(dividend)
       this.pushItems.push(rest)
       dividend = this.calcQuotient(dividend)
     }
-    let item: any
-    let valueConverted: string = ''
+    let item: number
+    let binaryValue: string = ''
     do {
       item = this.popItem.pop()
-      valueConverted = item ? `${valueConverted}${item}` : valueConverted
+      binaryValue = item !== undefined ? `${binaryValue}${item}` : binaryValue
     } while (item !== undefined)
+    return binaryValue
   }
 }
