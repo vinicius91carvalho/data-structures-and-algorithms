@@ -61,5 +61,11 @@ describe('DecimalToBinary', () => {
       expect(stackPopSpy.callsCount).toBe(5)
       expect(stackPopSpy.allItems).toEqual([])
     })
+
+    test('Should return the binary value in string', () => {
+      const { sut } = makeSut()
+      const convertedValue = sut.calc(10)
+      expect(convertedValue).toEqual('1010')
+    })
   })
 })

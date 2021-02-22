@@ -11,7 +11,7 @@ export class StackPushSpy implements PushItems {
 }
 
 export class StackPopSpy implements PopItem {
-  allItems: any[] = [1, 0, 1, 0]
+  allItems: any[] = [0, 1, 0, 1]
   callsCount: number = 0
 
   pop (): any {
