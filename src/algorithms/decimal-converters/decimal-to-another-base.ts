@@ -12,6 +12,6 @@ export class DecimalToAnotherBase implements CalcRest {
   }
 
   calcRest (dividend: number): number {
-    return dividend % 8
+    return dividend % this.base
   }
 }
