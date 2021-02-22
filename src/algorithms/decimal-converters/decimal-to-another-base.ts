@@ -1,6 +1,7 @@
+import { CalcRest } from '@/algorithms/decimal-converters/decimal-converter'
 import { IllegalArgumentError } from '@/errors/illegal-argument-error'
 
-export class DecimalToAnotherBase {
+export class DecimalToAnotherBase implements CalcRest {
   private constructor (private readonly base: number) {}
 
   static toBase (base: number): DecimalToAnotherBase {
@@ -8,5 +9,9 @@ export class DecimalToAnotherBase {
       throw new IllegalArgumentError('toBase', 'base')
     }
     return new DecimalToAnotherBase(base)
+  }
+
+  calcRest (dividend: number): number {
+    return dividend % 8
   }
 }
