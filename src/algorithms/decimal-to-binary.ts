@@ -14,8 +14,7 @@ export class DecimalToBinary {
     return Math.floor(dividend / 2)
   }
 
-  calc (value: number): string {
-    let dividend = value
+  calc (dividend: number): string {
     while (dividend > 0) {
       const rest = this.calcRest(dividend)
       this.pushItems.push(rest)
