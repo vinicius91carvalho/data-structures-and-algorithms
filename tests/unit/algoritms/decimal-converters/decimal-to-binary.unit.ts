@@ -48,24 +48,24 @@ describe('DecimalToBinary', () => {
     })
   })
 
-  describe('calc()', () => {
+  describe('convert()', () => {
     test('Should fill stackPushSpy with correct values', () => {
       const { sut, stackPushSpy } = makeSut()
-      sut.calc(10)
+      sut.convert(10)
       expect(stackPushSpy.allItems).toEqual([0, 1, 0, 1])
       expect(stackPushSpy.callsCount).toBe(4)
     })
 
     test('Should fill stackPopSpy with correct values', () => {
       const { sut, stackPopSpy } = makeSut()
-      sut.calc(10)
+      sut.convert(10)
       expect(stackPopSpy.callsCount).toBe(5)
       expect(stackPopSpy.allItems).toEqual([])
     })
 
     test('Should return the binary value in string', () => {
       const { sut } = makeSut()
-      const convertedValue = sut.calc(10)
+      const convertedValue = sut.convert(10)
       expect(convertedValue).toEqual('1010')
     })
   })

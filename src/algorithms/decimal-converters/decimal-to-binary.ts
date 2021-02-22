@@ -1,6 +1,7 @@
+import { DecimalConverter } from '@/algorithms/decimal-converters/decimal-converter'
 import { PopItem, PushItems } from '@/data-structures/stacks/stack-protocols'
 
-export class DecimalToBinary {
+export class DecimalToBinary implements DecimalConverter {
   constructor (
     private readonly pushItems: PushItems,
     private readonly popItem: PopItem
@@ -14,7 +15,7 @@ export class DecimalToBinary {
     return Math.floor(dividend / 2)
   }
 
-  calc (dividend: number): string {
+  convert (dividend: number): string {
     while (dividend > 0) {
       const rest = this.calcRest(dividend)
       this.pushItems.push(rest)
