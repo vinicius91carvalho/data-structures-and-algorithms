@@ -18,4 +18,8 @@ describe('DecimalToAnotherBase', () => {
     const sut = makeSut(36)
     expect(sut instanceof DecimalToAnotherBase).toBe(true)
   })
+
+  test('Should not make a DecimalToAnotherBase with base greather than 36', () => {
+    expect(() => { makeSut(faker.random.number({ min: 37 })) }).toThrowError(new IllegalArgumentError('toBase', 'base'))
+  })
 })
