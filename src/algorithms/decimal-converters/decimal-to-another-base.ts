@@ -16,6 +16,6 @@ export class DecimalToAnotherBase implements CalcRest, CalcQuotient {
   }
 
   calcQuotient (dividend: number): number {
-    return dividend / this.base
+    return Math.floor(dividend / this.base)
   }
 }
