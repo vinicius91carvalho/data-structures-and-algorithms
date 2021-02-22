@@ -22,4 +22,11 @@ describe('DecimalToAnotherBase', () => {
   test('Should not make a DecimalToAnotherBase with base greather than 36', () => {
     expect(() => { makeSut(faker.random.number({ min: 37 })) }).toThrowError(new IllegalArgumentError('toBase', 'base'))
   })
+
+  describe('calcRest()', () => {
+    test('Should return 7 when 15 value is provided using base 8', () => {
+      const sut = makeSut(8)
+      expect(sut.calcRest(15)).toBe(7)
+    })
+  })
 })
