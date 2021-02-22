@@ -45,5 +45,10 @@ describe('DecimalToAnotherBase', () => {
       const sut = makeSut(8)
       expect(sut.calcQuotient(16)).toBe(2)
     })
+
+    test('Should return 2 when 17 value is provided using base 8', () => {
+      const sut = makeSut(8)
+      expect(sut.calcQuotient(17)).toBe(2)
+    })
   })
 })
