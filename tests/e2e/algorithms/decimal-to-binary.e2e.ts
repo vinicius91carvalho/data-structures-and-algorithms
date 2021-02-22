@@ -15,4 +15,10 @@ describe('DecimalToBinary', () => {
     const result = sut.calc(10)
     expect(result).toEqual('1010')
   })
+
+  test('Should returns correct binary value to 1000 dividend', () => {
+    const sut = makeSut()
+    const result = sut.calc(1000)
+    expect(result).toEqual('1111101000')
+  })
 })
