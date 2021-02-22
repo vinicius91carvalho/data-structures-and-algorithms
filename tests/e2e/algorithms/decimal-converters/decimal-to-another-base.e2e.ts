@@ -9,4 +9,10 @@ describe('DecimalToAnotherBase', () => {
     const convertedValue = sut.convert(100345)
     expect(convertedValue).toEqual('11000011111111001')
   })
+
+  test('Should return the correct value when octal base is used', () => {
+    const sut = makeSut(8)
+    const convertedValue = sut.convert(100345)
+    expect(convertedValue).toEqual('303771')
+  })
 })
