@@ -21,4 +21,10 @@ describe('DecimalToAnotherBase', () => {
     const convertedValue = sut.convert(100345)
     expect(convertedValue).toEqual('187F9')
   })
+
+  test('Should return the correct value when hexadecimal base is used', () => {
+    const sut = makeSut(35)
+    const convertedValue = sut.convert(100345)
+    expect(convertedValue).toEqual('2BW0')
+  })
 })
