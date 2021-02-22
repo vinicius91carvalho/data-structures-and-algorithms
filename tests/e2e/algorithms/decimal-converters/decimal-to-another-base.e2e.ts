@@ -16,6 +16,12 @@ describe('DecimalToAnotherBase', () => {
     expect(convertedValue).toEqual('303771')
   })
 
+  test('Should return the correct value when octal base is used with value 10', () => {
+    const sut = makeSut(8)
+    const convertedValue = sut.convert(10)
+    expect(convertedValue).toEqual('12')
+  })
+
   test('Should return the correct value when hexadecimal base is used', () => {
     const sut = makeSut(16)
     const convertedValue = sut.convert(100345)
