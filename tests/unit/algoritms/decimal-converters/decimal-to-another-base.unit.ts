@@ -82,5 +82,11 @@ describe('DecimalToAnotherBase', () => {
       expect(stackPopSpy.allItems).toEqual([])
       expect(stackPopSpy.callsCount).toBe(5)
     })
+
+    test('Should return the converted string value when correct values is provided', () => {
+      const { sut } = makeSut(2)
+      const convertedValue = sut.convert(10)
+      expect(convertedValue).toEqual('1010')
+    })
   })
 })
