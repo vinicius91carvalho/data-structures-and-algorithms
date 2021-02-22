@@ -14,16 +14,17 @@ This repo is based on [Estruturas de Dados e Algoritmos com JavaScript: Escreva 
 * Implement the book's algorithms using TypeScript
 * Apply the concepts of [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=pd_sim_14_13?_encoding=UTF8&pd_rd_i=0132350882&pd_rd_r=c5fdf2b8-db24-11e8-8f8d-3f9a1c609712&pd_rd_w=NX6su&pd_rd_wg=Md4XU&pf_rd_i=desktop-dp-sims&pf_rd_m=ATVPDKIKX0DER&pf_rd_p=18bb0b78-4200-49b9-ac91-f141d61a1780&pf_rd_r=FW20HKV0BHRZNE9MEWZH&pf_rd_s=desktop-dp-sims&pf_rd_t=40701&psc=1&refRID=FW20HKV0BHRZNE9MEWZH) book by author [Robert C. Martin](https://blog.cleancoder.com)
 * Use a mutation testing tool to prevent errors in the writing of the tests and ensure that all tests are written correctly
+* Write unit and e2e tests for each algorithm
 
 # Data structures
 
 * Stack using an array
 * Stack using an object
-
 ## Algorithms
 
 * Imperative fibonacci
 * Converter of decimal to binary
+* Converter of decimal to any base
 
 # Tools
 
