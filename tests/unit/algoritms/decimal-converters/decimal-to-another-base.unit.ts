@@ -1,19 +1,22 @@
 import { DecimalToAnotherBase } from '@/algorithms/decimal-converters/decimal-to-another-base'
 import { IllegalArgumentError } from '@/errors/illegal-argument-error'
-import { StackPushSpy } from '@/tests/unit/mocks/mock-stack'
+import { StackPopSpy, StackPushSpy } from '@/tests/unit/mocks/mock-stack'
 import faker from 'faker'
 
 interface SutTypes {
   sut: DecimalToAnotherBase
   stackPushSpy: StackPushSpy
+  stackPopSpy: StackPopSpy
 }
 
 const makeSut = (base: number): SutTypes => {
   const stackPushSpy = new StackPushSpy()
-  const sut = new DecimalToAnotherBase(base, stackPushSpy)
+  const stackPopSpy = new StackPopSpy()
+  const sut = new DecimalToAnotherBase(base, stackPushSpy, stackPopSpy)
   return {
     sut,
-    stackPushSpy
+    stackPushSpy,
+    stackPopSpy
   }
 }
 
@@ -71,6 +74,13 @@ describe('DecimalToAnotherBase', () => {
       sut.convert(10)
       expect(stackPushSpy.allItems).toEqual([0, 1, 0, 1])
       expect(stackPushSpy.callsCount).toBe(4)
+    })
+
+    test('Should call pop on stack with correct values', () => {
+      const { sut, stackPopSpy } = makeSut(2)
+      sut.convert(10)
+      expect(stackPopSpy.allItems).toEqual([])
+      expect(stackPopSpy.callsCount).toBe(5)
     })
   })
 })
