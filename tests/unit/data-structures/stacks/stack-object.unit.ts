@@ -1,5 +1,5 @@
-import { StackObject } from '@/4-chapter-stacks/stacks/stack-object'
-import { Stack } from '@/4-chapter-stacks/stacks/stack-protocols'
+import { StackObject } from '@/data-structures/stacks/stack-object'
+import { Stack } from '@/data-structures/stacks/stack-protocols'
 import faker from 'faker'
 
 const makeSut = (initialData?: any[]): Stack => new StackObject(initialData)

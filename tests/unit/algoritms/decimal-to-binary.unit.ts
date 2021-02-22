@@ -1,5 +1,6 @@
-import { DecimalToBinary } from '@/4-chapter-stacks/decimal-to-binary'
-import { StackPopSpy, StackPushSpy } from '@/tests/4-chapter-stacks/mocks/mock-stack'
+
+import { DecimalToBinary } from '@/algorithms/decimal-to-binary'
+import { StackPopSpy, StackPushSpy } from '@/tests/unit/mocks/mock-stack'
 
 interface SutTypes {
   sut: DecimalToBinary

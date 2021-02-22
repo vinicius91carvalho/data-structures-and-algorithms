@@ -1,4 +1,4 @@
-import { fibonacci } from '@/3-chapter-arrays/fibonacci'
+import { fibonacci } from '@/algorithms/fibonacci'
 
 describe('Imperative Fibonacci', () => {
   test('Should check if function returns the min value', () => {

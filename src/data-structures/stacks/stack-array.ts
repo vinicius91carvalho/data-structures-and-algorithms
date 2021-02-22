@@ -1,4 +1,4 @@
-import { Stack } from '@/4-chapter-stacks/stacks/stack-protocols'
+import { Stack } from '@/data-structures/stacks/stack-protocols'
 import { clone } from '@/helpers/util'
 
 export class StackArray implements Stack {

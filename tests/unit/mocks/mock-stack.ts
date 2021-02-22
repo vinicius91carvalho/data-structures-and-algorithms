@@ -1,4 +1,4 @@
-import { PopItem, PushItems } from '@/4-chapter-stacks/stacks/stack-protocols'
+import { PopItem, PushItems } from '@/data-structures/stacks/stack-protocols'
 
 export class StackPushSpy implements PushItems {
   allItems: any[] = []
