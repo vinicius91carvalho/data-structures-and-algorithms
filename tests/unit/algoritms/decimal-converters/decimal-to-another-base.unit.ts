@@ -83,10 +83,17 @@ describe('DecimalToAnotherBase', () => {
       expect(stackPopSpy.callsCount).toBe(5)
     })
 
-    test('Should return the converted string value when correct values is provided', () => {
+    test('Should return the converted string value when correct values is provided using base 2', () => {
       const { sut } = makeSut(2)
       const convertedValue = sut.convert(10)
       expect(convertedValue).toEqual('1010')
+    })
+
+    test('Should return the converted string value when correct values is provided using base 16', () => {
+      const { sut, stackPopSpy } = makeSut(16)
+      stackPopSpy.allItems = [13]
+      const convertedValue = sut.convert(13)
+      expect(convertedValue).toEqual('D')
     })
   })
 })
