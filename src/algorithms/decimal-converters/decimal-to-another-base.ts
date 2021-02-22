@@ -31,9 +31,11 @@ export class DecimalToAnotherBase implements CalcRest, CalcQuotient, ConvertDeci
       dividend = this.calcQuotient(dividend)
     }
     let item: number
+    let convertedValue: string = ''
     do {
       item = this.popItem.pop()
+      convertedValue = item !== undefined ? `${convertedValue}${item}` : convertedValue
     } while (item !== undefined)
-    return ''
+    return convertedValue
   }
 }
