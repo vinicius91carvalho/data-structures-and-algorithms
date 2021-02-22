@@ -28,5 +28,10 @@ describe('DecimalToAnotherBase', () => {
       const sut = makeSut(8)
       expect(sut.calcRest(15)).toBe(7)
     })
+
+    test('Should return 1 when 5 value is provided using base 2', () => {
+      const sut = makeSut(2)
+      expect(sut.calcRest(5)).toBe(1)
+    })
   })
 })
