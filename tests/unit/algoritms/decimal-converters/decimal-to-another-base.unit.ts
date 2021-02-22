@@ -27,7 +27,15 @@ describe('DecimalToAnotherBase', () => {
   })
 
   test('Should not make a DecimalToAnotherBase with base less than 2', () => {
-    expect(() => { makeSut(faker.random.number(1)) }).toThrowError(new IllegalArgumentError('toBase', 'base'))
+    let error: Error = new Error()
+    try {
+      makeSut(faker.random.number(1))
+    } catch (err) {
+      error = err
+    }
+    expect(error).toEqual(new IllegalArgumentError('toBase', 'base'))
+    expect(error.message).toEqual('O argumento base para toBase é inválido.')
+    expect(error.name).toEqual('IllegalArgumentError')
   })
 
   test('Should make a DecimalToAnotherBase with base 36', () => {
