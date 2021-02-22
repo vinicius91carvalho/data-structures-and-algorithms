@@ -3,6 +3,7 @@ import { PopItem, PushItems } from '@/data-structures/stacks/stack-protocols'
 import { IllegalArgumentError } from '@/errors/illegal-argument-error'
 
 export class DecimalToAnotherBase implements CalcRest, CalcQuotient, ConvertDecimal {
+  readonly DIGITS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   readonly MIN_BASE = 2
   readonly MAX_BASE = 36
 
@@ -34,7 +35,10 @@ export class DecimalToAnotherBase implements CalcRest, CalcQuotient, ConvertDeci
     let convertedValue: string = ''
     do {
       item = this.popItem.pop()
-      convertedValue = item !== undefined ? `${convertedValue}${item}` : convertedValue
+      if (item !== undefined) {
+        const digit = this.DIGITS[item]
+        convertedValue = `${convertedValue}${digit}`
+      }
     } while (item !== undefined)
     return convertedValue
   }
