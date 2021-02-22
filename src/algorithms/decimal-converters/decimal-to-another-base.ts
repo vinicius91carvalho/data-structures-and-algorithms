@@ -1,7 +1,7 @@
-import { CalcRest } from '@/algorithms/decimal-converters/decimal-converter'
+import { CalcQuotient, CalcRest } from '@/algorithms/decimal-converters/decimal-converter'
 import { IllegalArgumentError } from '@/errors/illegal-argument-error'
 
-export class DecimalToAnotherBase implements CalcRest {
+export class DecimalToAnotherBase implements CalcRest, CalcQuotient {
   private constructor (private readonly base: number) {}
 
   static toBase (base: number): DecimalToAnotherBase {
@@ -13,5 +13,9 @@ export class DecimalToAnotherBase implements CalcRest {
 
   calcRest (dividend: number): number {
     return dividend % this.base
+  }
+
+  calcQuotient (dividend: number): number {
+    return dividend / 2
   }
 }
