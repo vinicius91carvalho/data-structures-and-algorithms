@@ -1,12 +1,25 @@
 import { DecimalToAnotherBase } from '@/algorithms/decimal-converters/decimal-to-another-base'
 import { IllegalArgumentError } from '@/errors/illegal-argument-error'
+import { StackPushSpy } from '@/tests/unit/mocks/mock-stack'
 import faker from 'faker'
 
-const makeSut = (base: number): DecimalToAnotherBase => DecimalToAnotherBase.toBase(base)
+interface SutTypes {
+  sut: DecimalToAnotherBase
+  stackPushSpy: StackPushSpy
+}
+
+const makeSut = (base: number): SutTypes => {
+  const stackPushSpy = new StackPushSpy()
+  const sut = new DecimalToAnotherBase(base, stackPushSpy)
+  return {
+    sut,
+    stackPushSpy
+  }
+}
 
 describe('DecimalToAnotherBase', () => {
   test('Should make a DecimalToAnotherBase with base 2', () => {
-    const sut = makeSut(2)
+    const { sut } = makeSut(2)
     expect(sut instanceof DecimalToAnotherBase).toBe(true)
   })
 
@@ -15,7 +28,7 @@ describe('DecimalToAnotherBase', () => {
   })
 
   test('Should make a DecimalToAnotherBase with base 36', () => {
-    const sut = makeSut(36)
+    const { sut } = makeSut(36)
     expect(sut instanceof DecimalToAnotherBase).toBe(true)
   })
 
@@ -25,30 +38,39 @@ describe('DecimalToAnotherBase', () => {
 
   describe('calcRest()', () => {
     test('Should return 7 when 15 value is provided using base 8', () => {
-      const sut = makeSut(8)
+      const { sut } = makeSut(8)
       expect(sut.calcRest(15)).toBe(7)
     })
 
     test('Should return 1 when 5 value is provided using base 2', () => {
-      const sut = makeSut(2)
+      const { sut } = makeSut(2)
       expect(sut.calcRest(5)).toBe(1)
     })
   })
 
   describe('calcQuotient()', () => {
     test('Should return 5 when 10 value is provided using base 2', () => {
-      const sut = makeSut(2)
+      const { sut } = makeSut(2)
       expect(sut.calcQuotient(10)).toBe(5)
     })
 
     test('Should return 2 when 16 value is provided using base 8', () => {
-      const sut = makeSut(8)
+      const { sut } = makeSut(8)
       expect(sut.calcQuotient(16)).toBe(2)
     })
 
     test('Should return 2 when 17 value is provided using base 8', () => {
-      const sut = makeSut(8)
+      const { sut } = makeSut(8)
       expect(sut.calcQuotient(17)).toBe(2)
+    })
+  })
+
+  describe('convert()', () => {
+    test('Should call push on stack with correct values', () => {
+      const { sut, stackPushSpy } = makeSut(2)
+      sut.convert(10)
+      expect(stackPushSpy.allItems).toEqual([0, 1, 0, 1])
+      expect(stackPushSpy.callsCount).toBe(4)
     })
   })
 })
