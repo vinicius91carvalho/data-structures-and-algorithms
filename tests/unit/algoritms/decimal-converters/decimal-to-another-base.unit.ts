@@ -1,4 +1,4 @@
-import { DecimalToAnotherBase } from '@/algorithms/decimal-to-another-base'
+import { DecimalToAnotherBase } from '@/algorithms/decimal-converters/decimal-to-another-base'
 import { IllegalArgumentError } from '@/errors/illegal-argument-error'
 import faker from 'faker'
 

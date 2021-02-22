@@ -1,5 +1,5 @@
 
-import { DecimalToBinary } from '@/algorithms/decimal-to-binary'
+import { DecimalToBinary } from '@/algorithms/decimal-converters/decimal-to-binary'
 import { StackPopSpy, StackPushSpy } from '@/tests/unit/mocks/mock-stack'
 
 interface SutTypes {

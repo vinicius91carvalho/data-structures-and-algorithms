@@ -1,4 +1,4 @@
-import { DecimalToBinary } from '@/algorithms/decimal-to-binary'
+import { DecimalToBinary } from '@/algorithms/decimal-converters/decimal-to-binary'
 import { makeDecimalToBinary } from '@/factories/algorithms/decimal-to-binary-factory'
 
 const makeSut = (): DecimalToBinary => makeDecimalToBinary()
