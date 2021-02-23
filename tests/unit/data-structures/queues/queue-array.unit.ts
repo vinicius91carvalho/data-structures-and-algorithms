@@ -7,23 +7,25 @@ const makeFakeItems = (): any[] => ([
   faker.random.number()
 ])
 
+const makeSut = (items?: any[]): QueueArray => new QueueArray(items)
+
 describe('QueueArray', () => {
   describe('getItems()', () => {
     test('Should return the elements on the queue', () => {
       const items = makeFakeItems()
-      const queue = new QueueArray(items)
+      const queue = makeSut(items)
       expect(queue.getItems()).toEqual(items)
     })
 
     test('Should not return the reference of the elements on the queue', () => {
       const items = makeFakeItems()
-      const queue = new QueueArray(items)
+      const queue = makeSut(items)
       expect(queue.getItems()).not.toBe(items)
     })
 
     test('Should avoid side effects', () => {
       const items = makeFakeItems()
-      const queue = new QueueArray(items)
+      const queue = makeSut(items)
       const queueItems = queue.getItems()
       queueItems.pop()
       expect(queue.getItems()).toEqual(items)
@@ -42,14 +44,14 @@ describe('QueueArray', () => {
   describe('dequeue()', () => {
     test('Should remove the first element of the queue', () => {
       const items = makeFakeItems()
-      const queue = new QueueArray(items)
+      const queue = makeSut(items)
       queue.dequeue()
       expect(queue.getItems()).toEqual([items[1], items[2]])
     })
 
     test('Should return the element removed', () => {
       const items = makeFakeItems()
-      const queue = new QueueArray(items)
+      const queue = makeSut(items)
       const item = queue.dequeue()
       expect(item).toEqual(items[0])
     })
@@ -58,16 +60,24 @@ describe('QueueArray', () => {
   describe('peek()', () => {
     test('Should return the first element of the queue', () => {
       const items = makeFakeItems()
-      const queue = new QueueArray(items)
+      const queue = makeSut(items)
       const item = queue.peek()
       expect(item).toEqual(items[0])
     })
 
     test('Should not remove the first element of the queue', () => {
       const items = makeFakeItems()
-      const queue = new QueueArray(items)
+      const queue = makeSut(items)
       queue.peek()
       expect(queue.getItems()).toEqual(items)
+    })
+  })
+
+  describe('isEmtpy()', () => {
+    test('Should return true if queue is empty', () => {
+      const sut = makeSut()
+      const isQueueEmpty = sut.isEmpty()
+      expect(isQueueEmpty).toEqual(true)
     })
   })
 })
