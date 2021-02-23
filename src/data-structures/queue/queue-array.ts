@@ -1,7 +1,11 @@
 import { Queue } from '@/data-structures/queue/queue-protocols'
 
 export class QueueArray implements Queue {
-  items: any[] = []
+  items: any[]
+
+  constructor (initialData?: any[]) {
+    this.items = initialData ? [...initialData] : []
+  }
 
   enqueue (...items: any): void {
     this.items.push(...items)
@@ -9,5 +13,9 @@ export class QueueArray implements Queue {
 
   getItems (): any[] {
     return this.items
+  }
+
+  dequeue (): any {
+    return this.items.shift()
   }
 }

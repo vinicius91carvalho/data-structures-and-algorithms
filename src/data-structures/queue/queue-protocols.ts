@@ -6,4 +6,7 @@ export interface GetItems {
   getItems: () => any[]
 }
 
-export interface Queue extends EnqueueItems, GetItems {}
+export interface DequeueItem {
+  dequeue: () => any
+}
+export interface Queue extends EnqueueItems, GetItems, DequeueItem {}
