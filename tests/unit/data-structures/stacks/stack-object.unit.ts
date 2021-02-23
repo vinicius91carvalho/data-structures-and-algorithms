@@ -125,5 +125,10 @@ describe('Stack Array', () => {
       const sut = makeSut(fakeData)
       expect(sut.toString()).toEqual(fakeData.toString())
     })
+
+    test('Should return empty string when stack is empty', () => {
+      const sut = makeSut()
+      expect(sut.toString()).toEqual('')
+    })
   })
 })
