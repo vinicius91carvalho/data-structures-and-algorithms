@@ -1,4 +1,5 @@
 import { QueueArray } from '@/data-structures/queue/queue-array'
+import { Queue } from '@/data-structures/queue/queue-protocols'
 import faker from 'faker'
 
 const makeFakeItems = (): any[] => ([
@@ -7,7 +8,7 @@ const makeFakeItems = (): any[] => ([
   faker.random.number()
 ])
 
-const makeSut = (items?: any[]): QueueArray => new QueueArray(items)
+const makeSut = (items?: any[]): Queue => new QueueArray(items)
 
 describe('QueueArray', () => {
   describe('getItems()', () => {
