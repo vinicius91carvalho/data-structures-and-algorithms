@@ -13,4 +13,8 @@ export interface DequeueItem {
 export interface PeekItem {
   peek: () => any
 }
-export interface Queue extends EnqueueItems, GetItems, DequeueItem {}
+
+export interface CheckEmptyItems {
+  isEmpty: () => any
+}
+export interface Queue extends EnqueueItems, GetItems, DequeueItem, CheckEmptyItems {}

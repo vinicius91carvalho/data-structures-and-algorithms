@@ -22,4 +22,8 @@ export class QueueArray implements Queue {
   peek (): any {
     return this.items[0]
   }
+
+  isEmpty (): boolean {
+    return this.items.length === 0
+  }
 }
