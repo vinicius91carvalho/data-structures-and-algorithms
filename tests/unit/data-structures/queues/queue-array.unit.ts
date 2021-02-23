@@ -20,6 +20,14 @@ describe('QueueArray', () => {
       const queue = new QueueArray(items)
       expect(queue.getItems()).not.toBe(items)
     })
+
+    test('Should avoid side effects', () => {
+      const items = makeFakeItems()
+      const queue = new QueueArray(items)
+      const queueItems = queue.getItems()
+      queueItems.pop()
+      expect(queue.getItems()).toEqual(items)
+    })
   })
 
   describe('enqueue()', () => {
