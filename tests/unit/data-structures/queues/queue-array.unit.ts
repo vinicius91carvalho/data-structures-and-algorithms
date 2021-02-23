@@ -54,4 +54,13 @@ describe('QueueArray', () => {
       expect(item).toEqual(items[0])
     })
   })
+
+  describe('peek()', () => {
+    test('Should return the first element of the queue', () => {
+      const items = makeFakeItems()
+      const queue = new QueueArray(items)
+      const item = queue.peek()
+      expect(item).toEqual(items[0])
+    })
+  })
 })
