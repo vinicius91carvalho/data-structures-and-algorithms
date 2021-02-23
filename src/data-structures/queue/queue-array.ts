@@ -34,4 +34,8 @@ export class QueueArray implements Queue {
   isEmpty (): boolean {
     return this.items.length === 0
   }
+
+  toString (): string {
+    return this.items.toString()
+  }
 }

@@ -25,4 +25,8 @@ export interface SizeItems {
 export interface ClearItems {
   clear: () => void
 }
-export interface Queue extends EnqueueItems, GetItems, DequeueItem, CheckEmptyItems, SizeItems, ClearItems {}
+
+export interface ConvertToString {
+  toString: () => string
+}
+export interface Queue extends EnqueueItems, GetItems, DequeueItem, CheckEmptyItems, SizeItems, ClearItems, ConvertToString {}
