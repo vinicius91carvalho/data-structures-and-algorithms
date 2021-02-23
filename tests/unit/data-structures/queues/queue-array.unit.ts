@@ -79,5 +79,11 @@ describe('QueueArray', () => {
       const isQueueEmpty = sut.isEmpty()
       expect(isQueueEmpty).toEqual(true)
     })
+
+    test('Should return false if queue is not empty', () => {
+      const sut = makeSut(makeFakeItems())
+      const isQueueEmpty = sut.isEmpty()
+      expect(isQueueEmpty).toEqual(false)
+    })
   })
 })
