@@ -86,4 +86,20 @@ describe('QueueArray', () => {
       expect(isQueueEmpty).toEqual(false)
     })
   })
+
+  describe('clear()', () => {
+    test('Should remove all elements of the stack', () => {
+      const sut = makeSut(makeFakeItems())
+      sut.clear()
+      expect(sut.getItems().length).toBe(0)
+    })
+  })
+
+  describe('size()', () => {
+    test('Should return the number of elements in the stack', () => {
+      const fakeData = makeFakeItems()
+      const sut = makeSut(fakeData)
+      expect(sut.size()).toBe(fakeData.length)
+    })
+  })
 })
