@@ -20,6 +20,6 @@ export class QueueArray implements Queue {
   }
 
   peek (): any {
-    return this.items.shift()
+    return this.items[0]
   }
 }
