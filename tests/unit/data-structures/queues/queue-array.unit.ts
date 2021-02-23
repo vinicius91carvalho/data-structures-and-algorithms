@@ -8,6 +8,14 @@ const makeFakeItems = (): any[] => ([
 ])
 
 describe('QueueArray', () => {
+  describe('getItems()', () => {
+    test('Should return the elements on the queue', () => {
+      const items = makeFakeItems()
+      const queue = new QueueArray(items)
+      expect(queue.getItems()).toEqual(items)
+    })
+  })
+
   describe('enqueue()', () => {
     test('Should add elements on queue', () => {
       const items = makeFakeItems()
