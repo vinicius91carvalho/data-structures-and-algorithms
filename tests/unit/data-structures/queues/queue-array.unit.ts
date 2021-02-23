@@ -102,4 +102,12 @@ describe('QueueArray', () => {
       expect(sut.size()).toBe(fakeData.length)
     })
   })
+
+  describe('toString()', () => {
+    test('Should return the string with all elements', () => {
+      const fakeData = makeFakeItems()
+      const sut = makeSut(fakeData)
+      expect(fakeData.toString()).toEqual(sut.toString())
+    })
+  })
 })
