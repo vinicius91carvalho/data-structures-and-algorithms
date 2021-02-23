@@ -14,6 +14,12 @@ describe('QueueArray', () => {
       const queue = new QueueArray(items)
       expect(queue.getItems()).toEqual(items)
     })
+
+    test('Should not return the reference of the elements on the queue', () => {
+      const items = makeFakeItems()
+      const queue = new QueueArray(items)
+      expect(queue.getItems()).not.toBe(items)
+    })
   })
 
   describe('enqueue()', () => {
