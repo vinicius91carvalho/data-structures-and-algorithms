@@ -37,4 +37,8 @@ export class StackArray implements Stack {
   getItems (): any[] {
     return [...this.items]
   }
+
+  toString (): string {
+    return this.items.toString()
+  }
 }
