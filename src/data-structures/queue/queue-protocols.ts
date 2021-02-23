@@ -9,4 +9,8 @@ export interface GetItems {
 export interface DequeueItem {
   dequeue: () => any
 }
+
+export interface PeekItem {
+  peek: () => any
+}
 export interface Queue extends EnqueueItems, GetItems, DequeueItem {}

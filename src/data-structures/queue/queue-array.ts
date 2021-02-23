@@ -7,15 +7,19 @@ export class QueueArray implements Queue {
     this.items = initialData ? [...initialData] : []
   }
 
-  enqueue (...items: any): void {
-    this.items.push(...items)
-  }
-
   getItems (): any[] {
     return [...this.items]
   }
 
+  enqueue (...items: any): void {
+    this.items.push(...items)
+  }
+
   dequeue (): any {
+    return this.items.shift()
+  }
+
+  peek (): any {
     return this.items.shift()
   }
 }
