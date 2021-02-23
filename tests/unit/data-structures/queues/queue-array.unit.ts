@@ -43,9 +43,15 @@ describe('QueueArray', () => {
     test('Should remove the first element of the queue', () => {
       const items = makeFakeItems()
       const queue = new QueueArray(items)
+      queue.dequeue()
+      expect(queue.getItems()).toEqual([items[1], items[2]])
+    })
+
+    test('Should return the element removed', () => {
+      const items = makeFakeItems()
+      const queue = new QueueArray(items)
       const item = queue.dequeue()
       expect(item).toEqual(items[0])
-      expect(queue.getItems()).toEqual([items[1], items[2]])
     })
   })
 })
