@@ -62,5 +62,12 @@ describe('QueueArray', () => {
       const item = queue.peek()
       expect(item).toEqual(items[0])
     })
+
+    test('Should not remove the first element of the queue', () => {
+      const items = makeFakeItems()
+      const queue = new QueueArray(items)
+      queue.peek()
+      expect(queue.getItems()).toEqual(items)
+    })
   })
 })
