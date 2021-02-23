@@ -23,6 +23,14 @@ export class QueueArray implements Queue {
     return this.items[0]
   }
 
+  size (): number {
+    return this.items.length
+  }
+
+  clear (): void {
+    this.items = []
+  }
+
   isEmpty (): boolean {
     return this.items.length === 0
   }
