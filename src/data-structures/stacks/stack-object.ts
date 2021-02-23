@@ -46,4 +46,19 @@ export class StackObject implements Stack {
     })
     return arr
   }
+
+  toString (): string {
+    const keys = Object.keys(this.items)
+
+    if (this.isEmpty()) {
+      return ''
+    }
+
+    let serializedStack = String(this.items[0])
+
+    for (let i = 1; i < keys.length; i++) {
+      serializedStack = `${serializedStack},${this.items[i]}`
+    }
+    return serializedStack
+  }
 }
