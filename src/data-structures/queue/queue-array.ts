@@ -12,7 +12,7 @@ export class QueueArray implements Queue {
   }
 
   getItems (): any[] {
-    return this.items
+    return [...this.items]
   }
 
   dequeue (): any {
