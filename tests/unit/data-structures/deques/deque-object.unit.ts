@@ -1,20 +1,27 @@
 import { DequeObject } from '@/data-structures/deques/deque-object'
 import { Deque } from '@/data-structures/deques/deque-protocols'
+import faker from 'faker'
 
-const makeSut = (elements? : any[]): Deque => new DequeObject(elements)
+const makeSut = (items? : any[]): Deque => new DequeObject(items)
+
+const makeFakeItems = (): any[] => ([
+  faker.helpers.createCard(),
+  faker.random.word(),
+  faker.random.number()
+])
 
 describe('DequeObject', () => {
   describe('getItems()', () => {
-    test('Should get initialized elements', () => {
-      const elements = [1, 2, 3]
-      const deque = makeSut(elements)
-      expect(deque.getItems()).toEqual(elements)
+    test('Should get initialized items', () => {
+      const items = makeFakeItems()
+      const deque = makeSut(items)
+      expect(deque.getItems()).toEqual(items)
     })
 
     test('Should not get the same reference', () => {
-      const elements = [1, 2, 3]
-      const deque = makeSut(elements)
-      expect(deque.getItems()).not.toBe(elements)
+      const items = makeFakeItems()
+      const deque = makeSut(items)
+      expect(deque.getItems()).not.toBe(items)
     })
   })
 })
