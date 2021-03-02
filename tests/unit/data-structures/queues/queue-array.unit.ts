@@ -1,5 +1,5 @@
-import { QueueArray } from '@/data-structures/queue/queue-array'
-import { Queue } from '@/data-structures/queue/queue-protocols'
+import { QueueArray } from '@/data-structures/queues/queue-array'
+import { Queue } from '@/data-structures/queues/queue-protocols'
 import faker from 'faker'
 
 const makeFakeItems = (): any[] => ([

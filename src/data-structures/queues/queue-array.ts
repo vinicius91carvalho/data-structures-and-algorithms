@@ -1,4 +1,4 @@
-import { Queue } from '@/data-structures/queue/queue-protocols'
+import { Queue } from '@/data-structures/queues/queue-protocols'
 
 export class QueueArray implements Queue {
   items: any[]
