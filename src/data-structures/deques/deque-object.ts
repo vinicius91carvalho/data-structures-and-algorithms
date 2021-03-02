@@ -8,6 +8,10 @@ export class DequeObject implements Deque {
     items?.forEach((value, index) => { this.items[index] = value })
   }
 
+  size (): number {
+    return Object.keys(this.items).length
+  }
+
   getItems (): any[] {
     return Object.values(this.items)
   }
