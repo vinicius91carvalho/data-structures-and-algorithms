@@ -38,4 +38,12 @@ describe('DequeObject', () => {
       expect(deque.getItems()).toEqual([])
     })
   })
+
+  describe('size()', () => {
+    test('Should returns the total number of items', () => {
+      const items = makeFakeItems()
+      const deque = makeSut(items)
+      expect(deque.size()).toBe(3)
+    })
+  })
 })
