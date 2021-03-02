@@ -23,5 +23,10 @@ describe('DequeObject', () => {
       const deque = makeSut(items)
       expect(deque.getItems()).not.toBe(items)
     })
+
+    test('Should get an empty array if nothing is provided', () => {
+      const deque = makeSut()
+      expect(deque.getItems()).toEqual([])
+    })
   })
 })
