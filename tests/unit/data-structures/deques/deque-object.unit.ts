@@ -29,4 +29,13 @@ describe('DequeObject', () => {
       expect(deque.getItems()).toEqual([])
     })
   })
+
+  describe('clear()', () => {
+    test('Should clear the data structure', () => {
+      const items = makeFakeItems()
+      const deque = makeSut(items)
+      deque.clear()
+      expect(deque.getItems()).toEqual([])
+    })
+  })
 })
