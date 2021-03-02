@@ -1,6 +1,6 @@
-import { GetItems } from '@/data-structures/common/collection-protocols'
+import { Deque } from '@/data-structures/deques/deque-protocols'
 
-export class DequeObject implements GetItems {
+export class DequeObject implements Deque {
   private readonly items: { [index: number]: any}
 
   constructor (items?: any[]) {
