@@ -1,9 +1,9 @@
+import { Collection } from '@/data-structures/common/collection-protocols'
+
+export interface Queue extends EnqueueItems, DequeueItem, PeekItem, Collection {}
+
 export interface EnqueueItems {
   enqueue: (...items: any) => void
-}
-
-export interface GetItems {
-  getItems: () => any[]
 }
 
 export interface DequeueItem {
@@ -13,16 +13,3 @@ export interface DequeueItem {
 export interface PeekItem {
   peek: () => any
 }
-
-export interface CheckEmptyItems {
-  isEmpty: () => any
-}
-
-export interface SizeItems {
-  size: () => number
-}
-
-export interface ClearItems {
-  clear: () => void
-}
-export interface Queue extends EnqueueItems, GetItems, DequeueItem, PeekItem, CheckEmptyItems, SizeItems, ClearItems {}
