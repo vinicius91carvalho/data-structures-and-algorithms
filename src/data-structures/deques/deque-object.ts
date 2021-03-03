@@ -13,6 +13,10 @@ export class DequeObject implements Deque {
     this.lastPosition = items ? this.size() - 1 : 0
   }
 
+  peekBack (): any {
+    return deepCopy(this.items[this.lastPosition])
+  }
+
   peekFront (): any {
     return deepCopy(this.items[this.firstPosition])
   }
