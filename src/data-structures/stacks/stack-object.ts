@@ -1,5 +1,5 @@
 import { Stack } from '@/data-structures/stacks/stack-protocols'
-import { clone } from '@/helpers/util'
+import { deepCopy } from '@/helpers/util'
 
 export class StackObject implements Stack {
   private items: { [key: number]: [value: any] }
@@ -18,12 +18,12 @@ export class StackObject implements Stack {
     const lastKey = this.size() - 1
     const item = this.items[lastKey]
     delete this.items[lastKey]
-    return clone(item)
+    return deepCopy(item)
   }
 
   peek (): any {
     const item = this.items[this.size() - 1]
-    return clone(item)
+    return deepCopy(item)
   }
 
   isEmpty (): boolean {

@@ -1,5 +1,5 @@
 import { Stack } from '@/data-structures/stacks/stack-protocols'
-import { clone } from '@/helpers/util'
+import { deepCopy } from '@/helpers/util'
 
 export class StackArray implements Stack {
   private items: any[]
@@ -14,12 +14,12 @@ export class StackArray implements Stack {
 
   pop (): any {
     const item = this.items.pop()
-    return clone(item)
+    return deepCopy(item)
   }
 
   peek (): any {
     const item = this.items[this.items.length - 1]
-    return clone(item)
+    return deepCopy(item)
   }
 
   isEmpty (): boolean {
