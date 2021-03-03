@@ -59,4 +59,13 @@ describe('DequeObject', () => {
       expect(deque.isEmpty()).toBe(false)
     })
   })
+
+  describe('addFront()', () => {
+    test('Shoudl add an element in front of deque', () => {
+      const item = faker.random.number()
+      const deque = makeSut()
+      deque.addFront(item)
+      expect(deque.getItems()).toEqual([item])
+    })
+  })
 })
