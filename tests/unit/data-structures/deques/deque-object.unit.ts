@@ -106,4 +106,14 @@ describe('DequeObject', () => {
       expect(sut.getItems()).toEqual([items[0], items[1]])
     })
   })
+
+  describe('peekFront()', () => {
+    test('Should get the element in the front of deque', () => {
+      const items = makeFakeItems()
+      const sut = makeSut(items)
+      const element = sut.peekFront()
+      expect(element).toEqual(items[0])
+      expect(sut.getItems()).toEqual(items)
+    })
+  })
 })
