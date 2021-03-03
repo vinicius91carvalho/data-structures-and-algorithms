@@ -61,4 +61,8 @@ export class DequeObject implements Deque {
   isEmpty (): boolean {
     return Object.keys(this.items).length === 0
   }
+
+  toString (): string {
+    return this.getItems().toString()
+  }
 }
