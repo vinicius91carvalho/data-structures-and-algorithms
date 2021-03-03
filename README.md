@@ -21,6 +21,8 @@ This repo is based on [Estruturas de Dados e Algoritmos com JavaScript: Escreva 
 * Stack using an array
 * Stack using an object
 * Queue using an array
+* Deque using an object
+
 ## Algorithms
 
 * Imperative fibonacci
