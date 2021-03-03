@@ -4,3 +4,4 @@ coverage
 yarn-error.log
 .stryker-tmp
 reports
+dist
