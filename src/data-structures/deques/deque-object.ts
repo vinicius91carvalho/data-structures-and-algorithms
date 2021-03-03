@@ -2,10 +2,12 @@ import { Deque } from '@/data-structures/deques/deque-protocols'
 
 export class DequeObject implements Deque {
   private items: { [index: number]: any}
-  private lastPosition: number
+  private firstPosition: number
+  private readonly lastPosition: number
 
   constructor (items?: any[]) {
     this.items = {}
+    this.firstPosition = 0
     items?.forEach((value, index) => { this.items[index] = value })
     this.lastPosition = items ? this.size() - 1 : 0
   }
@@ -15,7 +17,12 @@ export class DequeObject implements Deque {
   }
 
   getItems (): any[] {
-    return Object.values(this.items)
+    // eslint-disable-next-line @typescript-eslint/require-array-sort-compare
+    return Object
+      .keys(this.items)
+      .map(item => Number(item))
+      .sort()
+      .map(index => this.items[index])
   }
 
   clear (): void {
@@ -27,6 +34,6 @@ export class DequeObject implements Deque {
   }
 
   addFront (item: any): void {
-    this.items[this.lastPosition++] = item
+    this.items[--this.firstPosition] = item
   }
 }
