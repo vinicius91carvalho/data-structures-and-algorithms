@@ -12,6 +12,12 @@ export class DequeObject implements Deque {
     this.lastPosition = items ? this.size() - 1 : 0
   }
 
+  removeFront (): any {
+    const item = this.items[this.firstPosition]
+    delete this.items[this.firstPosition]
+    return item
+  }
+
   addBack (item: any): void {
     this.items[++this.lastPosition] = item
   }
