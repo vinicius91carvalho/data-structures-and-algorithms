@@ -3,13 +3,21 @@ import { Deque } from '@/data-structures/deques/deque-protocols'
 export class DequeObject implements Deque {
   private items: { [index: number]: any}
   private firstPosition: number
-  private readonly lastPosition: number
+  private lastPosition: number
 
   constructor (items?: any[]) {
     this.items = {}
     this.firstPosition = 0
     items?.forEach((value, index) => { this.items[index] = value })
     this.lastPosition = items ? this.size() - 1 : 0
+  }
+
+  addBack (item: any): void {
+    this.items[++this.lastPosition] = item
+  }
+
+  addFront (item: any): void {
+    this.items[--this.firstPosition] = item
   }
 
   size (): number {
@@ -31,9 +39,5 @@ export class DequeObject implements Deque {
 
   isEmpty (): boolean {
     return Object.keys(this.items).length === 0
-  }
-
-  addFront (item: any): void {
-    this.items[--this.firstPosition] = item
   }
 }

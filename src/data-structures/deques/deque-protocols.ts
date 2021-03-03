@@ -4,4 +4,8 @@ interface AddItemFront {
   addFront: (item: any) => void
 }
 
-export interface Deque extends Collection, AddItemFront {}
+interface AddItemBack {
+  addBack: (item: any) => void
+}
+
+export interface Deque extends Collection, AddItemFront, AddItemBack {}
