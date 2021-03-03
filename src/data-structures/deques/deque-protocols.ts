@@ -16,4 +16,8 @@ interface RemoveItemBack {
   removeBack: () => any
 }
 
-export interface Deque extends Collection, AddItemFront, AddItemBack, RemoveItemFront, RemoveItemBack {}
+interface PeekItemFront {
+  peekFront: () => any
+}
+
+export interface Deque extends Collection, AddItemFront, AddItemBack, RemoveItemFront, RemoveItemBack, PeekItemFront {}

@@ -1,4 +1,5 @@
 import { Deque } from '@/data-structures/deques/deque-protocols'
+import { deepCopy } from '@/helpers/util'
 
 export class DequeObject implements Deque {
   private items: { [index: number]: any}
@@ -10,6 +11,10 @@ export class DequeObject implements Deque {
     this.firstPosition = 0
     items?.forEach((value, index) => { this.items[index] = value })
     this.lastPosition = items ? this.size() - 1 : 0
+  }
+
+  peekFront (): any {
+    return deepCopy(this.items[this.firstPosition])
   }
 
   removeBack (): any {
