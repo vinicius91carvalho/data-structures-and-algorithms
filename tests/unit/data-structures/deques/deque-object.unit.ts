@@ -52,5 +52,11 @@ describe('DequeObject', () => {
       const deque = makeSut()
       expect(deque.isEmpty()).toBe(true)
     })
+
+    test('Should returns false if deque is not empty', () => {
+      const items = makeFakeItems()
+      const deque = makeSut(items)
+      expect(deque.isEmpty()).toBe(false)
+    })
   })
 })
