@@ -76,4 +76,14 @@ describe('DequeObject', () => {
       expect(deque.getItems()).toEqual([newItem, ...items])
     })
   })
+
+  describe('addBack()', () => {
+    test('Should add an element in the end of deque', () => {
+      const newItem = faker.random.number()
+      const items = makeFakeItems()
+      const deque = makeSut(items)
+      deque.addBack(newItem)
+      expect(deque.getItems()).toEqual([...items, newItem])
+    })
+  })
 })
