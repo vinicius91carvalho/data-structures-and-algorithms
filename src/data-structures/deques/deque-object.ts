@@ -19,4 +19,8 @@ export class DequeObject implements Deque {
   clear (): void {
     this.items = {}
   }
+
+  isEmpty (): boolean {
+    return Object.keys(this.items).length === 0
+  }
 }

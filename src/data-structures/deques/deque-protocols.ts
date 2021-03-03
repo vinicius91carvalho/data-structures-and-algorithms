@@ -1,3 +1,3 @@
-import { ClearItems, GetItems, SizeItems } from '@/data-structures/common/collection-protocols'
+import { Collection } from '@/data-structures/common/collection-protocols'
 
-export interface Deque extends GetItems, ClearItems, SizeItems {}
+export interface Deque extends Collection {}
