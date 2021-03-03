@@ -46,4 +46,11 @@ describe('DequeObject', () => {
       expect(deque.size()).toBe(3)
     })
   })
+
+  describe('isEmpty()', () => {
+    test('Should returns true if deque is empty', () => {
+      const deque = makeSut()
+      expect(deque.isEmpty()).toBe(true)
+    })
+  })
 })
