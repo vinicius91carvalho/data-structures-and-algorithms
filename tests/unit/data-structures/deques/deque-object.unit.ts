@@ -134,4 +134,14 @@ describe('DequeObject', () => {
       expect(fakeData.toString()).toEqual(sut.toString())
     })
   })
+
+  test('Should remove an element after 3 insertions on deque', () => {
+    const sut = makeSut()
+    const firstItem = faker.random.word()
+    sut.addBack(firstItem)
+    sut.addBack(faker.random.word())
+    sut.addBack(faker.random.word())
+    const firstElement = sut.removeFront()
+    expect(firstElement).toEqual(firstItem)
+  })
 })

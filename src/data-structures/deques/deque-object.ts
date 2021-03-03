@@ -1,3 +1,4 @@
+import 'module-alias/register'
 import { Deque } from '@/data-structures/deques/deque-protocols'
 import { deepCopy } from '@/helpers/util'
 
@@ -13,6 +14,10 @@ export class DequeObject implements Deque {
     this.lastPosition = items ? this.size() - 1 : 0
   }
 
+  private calcRightPosition (newValue: number, oldValue: number): number {
+    return this.size() > 0 ? newValue : oldValue
+  }
+
   peekBack (): any {
     return deepCopy(this.items[this.lastPosition])
   }
@@ -23,22 +28,26 @@ export class DequeObject implements Deque {
 
   removeBack (): any {
     const item = this.items[this.lastPosition]
-    delete this.items[this.lastPosition--]
+    delete this.items[this.lastPosition]
+    this.lastPosition = this.calcRightPosition(this.lastPosition - 1, this.lastPosition)
     return item
   }
 
   removeFront (): any {
     const item = this.items[this.firstPosition]
-    delete this.items[this.firstPosition++]
+    delete this.items[this.firstPosition]
+    this.firstPosition = this.calcRightPosition(this.firstPosition + 1, this.firstPosition)
     return item
   }
 
   addBack (item: any): void {
-    this.items[++this.lastPosition] = item
+    this.lastPosition = this.calcRightPosition(this.lastPosition + 1, this.lastPosition)
+    this.items[this.lastPosition] = item
   }
 
   addFront (item: any): void {
-    this.items[--this.firstPosition] = item
+    this.firstPosition = this.calcRightPosition(this.firstPosition - 1, this.firstPosition)
+    this.items[this.firstPosition] = item
   }
 
   size (): number {
