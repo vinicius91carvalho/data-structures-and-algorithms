@@ -15,8 +15,6 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
     "test:mutation": "npx stryker run"
-    
-    
   },
   "keywords": [],
   "author": "Vinicius Carvalho <vinicius91carvalho@gmail.com>",
