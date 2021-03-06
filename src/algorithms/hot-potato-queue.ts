@@ -1,6 +1,10 @@
 import { SizeItems } from '@/data-structures/common/collection-protocols'
 import { DequeueItem, EnqueueItems } from '@/data-structures/queues/queue-protocols'
 
+export type Result = {
+  winner: string
+  eliminated: string[]
+}
 export class HotPotatoQueue {
   constructor (
     participants: string[],
@@ -11,7 +15,7 @@ export class HotPotatoQueue {
     this.enqueueItems.enqueue(participants)
   }
 
-  play (totalSteps: number): string[] {
+  play (totalSteps: number): Result {
     const participantsEliminated: string[] = []
     let participantEliminated: string = ''
 
@@ -27,6 +31,11 @@ export class HotPotatoQueue {
       participantsEliminated.push(participantEliminated)
     }
 
-    return participantsEliminated
+    const result = {
+      winner: this.dequeueItem.dequeue(),
+      eliminated: participantsEliminated
+    }
+
+    return result
   }
 }
