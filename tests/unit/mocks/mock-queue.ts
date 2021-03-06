@@ -1,28 +1,35 @@
 import { SizeItems } from '@/data-structures/common/collection-protocols'
 import { DequeueItem, EnqueueItems } from '@/data-structures/queues/queue-protocols'
 
-export class QueueSizeItemsFake implements SizeItems {
-  constructor (private readonly items: any[]) {}
+export class QueueSizeItemsSpy implements SizeItems {
+  constructor (readonly allItems: any[]) {}
+  callsCount: number = 0
 
   size (): number {
-    return this.items.length
+    this.callsCount++
+    return this.allItems.length
   }
 }
-export class DequeueItemFake implements DequeueItem {
-  constructor (private readonly items: any[]) {}
+export class DequeueItemSpy implements DequeueItem {
+  constructor (readonly allItems: any[]) {}
+  callsCount: number = 0
+  results: any[] = []
 
   dequeue (): any {
-    return this.items.shift()
+    this.callsCount++
+    const item = this.allItems.shift()
+    this.results.push(item)
+    return item
   }
 }
-export class EnqueueItemsFake implements EnqueueItems {
-  items: any[] = []
+export class EnqueueItemsSpy implements EnqueueItems {
+  constructor (readonly allItems: any[]) {}
+  callsCount: number = 0
+  params: any[] = []
 
-  enqueue (items: any): void {
-    if (items instanceof Array) {
-      this.items = items
-      return
-    }
-    this.items.push(items)
+  enqueue (...items: any): void {
+    this.callsCount++
+    this.params.push(items)
+    this.allItems.push(...items)
   }
 }

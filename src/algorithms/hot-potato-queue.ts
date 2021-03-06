@@ -1,5 +1,6 @@
 import { SizeItems } from '@/data-structures/common/collection-protocols'
 import { DequeueItem, EnqueueItems } from '@/data-structures/queues/queue-protocols'
+import { IllegalArgumentError } from '@/errors/illegal-argument-error'
 
 export type Result = {
   winner: string
@@ -7,28 +8,25 @@ export type Result = {
 }
 export class HotPotatoQueue {
   constructor (
-    participants: string[],
     private readonly enqueueItems: EnqueueItems,
     private readonly dequeueItem: DequeueItem,
     private readonly sizeItems: SizeItems
-  ) {
-    this.enqueueItems.enqueue(participants)
-  }
+  ) {}
 
-  play (totalSteps: number): Result {
+  play (participants: string[], steps: number): Result {
+    if (steps < 1) {
+      throw new IllegalArgumentError('steps', steps)
+    }
+
+    this.enqueueItems.enqueue(...participants)
+
     const participantsEliminated: string[] = []
-    let participantEliminated: string = ''
 
     while (this.sizeItems.size() > 1) {
-      let steps = totalSteps
-      while (steps > 0) {
-        participantEliminated = this.dequeueItem.dequeue()
-        if ((steps - 1) !== 0) {
-          this.enqueueItems.enqueue(participantEliminated)
-        }
-        steps--
+      for (let i = 0; i < steps; i++) {
+        this.enqueueItems.enqueue(this.dequeueItem.dequeue())
       }
-      participantsEliminated.push(participantEliminated)
+      participantsEliminated.push(this.dequeueItem.dequeue())
     }
 
     const result = {
