@@ -32,14 +32,21 @@ describe('HotPotatoQueue', () => {
   describe('play()', () => {
     test('Should return all eliminated participants until the last remains', () => {
       const { sut } = makeSut()
-      const participantsEliminated = sut.play(1)
+      const { eliminated: participantsEliminated } = sut.play(1)
       expect(participantsEliminated).toEqual(['João', 'José', 'Maria'])
     })
 
     test('Should return the eliminated participants until the last remains passing 2 as total steps', () => {
       const { sut } = makeSut()
-      const participantsEliminated = sut.play(2)
+      const { eliminated: participantsEliminated } = sut.play(2)
       expect(participantsEliminated).toEqual(['José', 'Pedro', 'Maria'])
+    })
+
+    test('Should return the winner when passing 1 as total steps', () => {
+      const { sut } = makeSut()
+      const result = sut.play(1)
+      expect(result.eliminated).toEqual(['João', 'José', 'Maria'])
+      expect(result.winner).toEqual('Pedro')
     })
   })
 })
