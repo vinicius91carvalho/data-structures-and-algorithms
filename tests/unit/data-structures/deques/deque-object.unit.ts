@@ -95,6 +95,16 @@ describe('DequeObject', () => {
       expect(element).toEqual(items[0])
       expect(sut.getItems()).toEqual([items[1], items[2]])
     })
+
+    test('Should remove two elements in the front of deque', () => {
+      const items = makeFakeItems()
+      const sut = makeSut(items)
+      const element1 = sut.removeFront()
+      const element2 = sut.removeFront()
+      expect(element1).toEqual(items[0])
+      expect(element2).toEqual(items[1])
+      expect(sut.getItems()).toEqual([items[2]])
+    })
   })
 
   describe('removeBack()', () => {
@@ -104,6 +114,16 @@ describe('DequeObject', () => {
       const element = sut.removeBack()
       expect(element).toEqual(items[2])
       expect(sut.getItems()).toEqual([items[0], items[1]])
+    })
+
+    test('Should remove two elements in the end of deque', () => {
+      const items = makeFakeItems()
+      const sut = makeSut(items)
+      const element1 = sut.removeBack()
+      const element2 = sut.removeBack()
+      expect(element1).toEqual(items[2])
+      expect(element2).toEqual(items[1])
+      expect(sut.getItems()).toEqual([items[0]])
     })
   })
 
