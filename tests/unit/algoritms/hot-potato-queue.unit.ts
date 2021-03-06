@@ -1,44 +1,45 @@
 import { HotPotatoQueue } from '@/algorithms/hot-potato-queue'
-import { DequeueItemSpy, EnqueueItemsSpy } from '@/tests/unit/mocks/mock-queue'
+import { DequeueItemFake, EnqueueItemsFake, QueueSizeItemsFake } from '@/tests/unit/mocks/mock-queue'
 
 type SutTypes = {
   sut: HotPotatoQueue
-  enqueueSpy: EnqueueItemsSpy
-  dequeueSpy: DequeueItemSpy
+  enqueueFake: EnqueueItemsFake
+  dequeueFake: DequeueItemFake
   participants: string[]
 }
 
 const makeSut = (): SutTypes => {
-  const enqueueSpy = new EnqueueItemsSpy()
+  const enqueueFake = new EnqueueItemsFake()
   const participants = ['João', 'José', 'Maria', 'Pedro']
-  const dequeueSpy = new DequeueItemSpy(participants)
+  const dequeueFake = new DequeueItemFake(participants)
+  const queueSizeItemsFake = new QueueSizeItemsFake(participants)
   // eslint-disable-next-line no-new
-  const sut = new HotPotatoQueue(participants, enqueueSpy, dequeueSpy)
+  const sut = new HotPotatoQueue(participants, enqueueFake, dequeueFake, queueSizeItemsFake)
   return {
     sut,
-    enqueueSpy,
-    dequeueSpy,
+    enqueueFake,
+    dequeueFake,
     participants
   }
 }
 
 describe('HotPotatoQueue', () => {
   test('Should save the participants in the Queue', () => {
-    const { enqueueSpy, participants } = makeSut()
-    expect(enqueueSpy.items).toEqual(participants)
+    const { enqueueFake, participants } = makeSut()
+    expect(enqueueFake.items).toEqual(participants)
   })
 
   describe('play()', () => {
-    test('Should pass the potato to the another participant based on the number of steps', () => {
-      const { enqueueSpy, sut } = makeSut()
-      sut.play(2)
-      expect(enqueueSpy.items).toEqual(['Maria', 'Pedro', 'João', 'José'])
+    test('Should return all eliminated participants until the last remains', () => {
+      const { sut } = makeSut()
+      const participantsEliminated = sut.play(1)
+      expect(participantsEliminated).toEqual(['João', 'José', 'Maria'])
     })
 
-    test('Should eliminate the participant with the potato when the iteration stops', () => {
+    test('Should return the eliminated participants until the last remains passing 2 as total steps', () => {
       const { sut } = makeSut()
-      const participantEliminated = sut.play(3)
-      expect(participantEliminated).toEqual('Maria')
+      const participantsEliminated = sut.play(2)
+      expect(participantsEliminated).toEqual(['José', 'Pedro', 'Maria'])
     })
   })
 })
