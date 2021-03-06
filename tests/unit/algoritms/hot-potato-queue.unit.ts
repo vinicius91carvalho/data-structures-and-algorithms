@@ -34,5 +34,11 @@ describe('HotPotatoQueue', () => {
       sut.play(2)
       expect(enqueueSpy.items).toEqual(['Maria', 'Pedro', 'João', 'José'])
     })
+
+    test('Should eliminate the participant with the potato when the iteration stops', () => {
+      const { sut } = makeSut()
+      const participantEliminated = sut.play(3)
+      expect(participantEliminated).toEqual('Maria')
+    })
   })
 })
