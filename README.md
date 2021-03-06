@@ -28,6 +28,7 @@ This repo is based on [Estruturas de Dados e Algoritmos com JavaScript: Escreva 
 * Imperative fibonacci
 * Converter of decimal to binary
 * Converter of decimal to any base
+* Hot Potato using a circular Queue
 
 # Tools
 
