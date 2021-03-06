@@ -9,10 +9,13 @@ export class HotPotatoQueue {
     this.enqueueItems.enqueue(participants)
   }
 
-  play (steps: number): void {
+  play (steps: number): string {
+    let eliminated: string = ''
     while (steps > 0) {
-      this.enqueueItems.enqueue(this.dequeueItem.dequeue())
+      eliminated = this.dequeueItem.dequeue()
+      this.enqueueItems.enqueue(eliminated)
       steps--
     }
+    return eliminated
   }
 }
