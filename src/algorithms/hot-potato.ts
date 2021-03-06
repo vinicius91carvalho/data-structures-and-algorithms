@@ -1,6 +1,12 @@
 export class HotPotato {
-  public participants: string[]
+  public _participants: string[]
   constructor (participants: string[]) {
-    this.participants = participants
+    this._participants = participants
   }
+
+  get participants (): string[] {
+    return this._participants
+  }
+
+  set participants (participants: string[]) {}
 }
