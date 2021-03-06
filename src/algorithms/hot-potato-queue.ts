@@ -1,21 +1,32 @@
+import { SizeItems } from '@/data-structures/common/collection-protocols'
 import { DequeueItem, EnqueueItems } from '@/data-structures/queues/queue-protocols'
 
 export class HotPotatoQueue {
   constructor (
     participants: string[],
     private readonly enqueueItems: EnqueueItems,
-    private readonly dequeueItem: DequeueItem
+    private readonly dequeueItem: DequeueItem,
+    private readonly sizeItems: SizeItems
   ) {
     this.enqueueItems.enqueue(participants)
   }
 
-  play (steps: number): string {
-    let eliminated: string = ''
-    while (steps > 0) {
-      eliminated = this.dequeueItem.dequeue()
-      this.enqueueItems.enqueue(eliminated)
-      steps--
+  play (totalSteps: number): string[] {
+    const participantsEliminated: string[] = []
+    let participantEliminated: string = ''
+
+    while (this.sizeItems.size() > 1) {
+      let steps = totalSteps
+      while (steps > 0) {
+        participantEliminated = this.dequeueItem.dequeue()
+        if ((steps - 1) !== 0) {
+          this.enqueueItems.enqueue(participantEliminated)
+        }
+        steps--
+      }
+      participantsEliminated.push(participantEliminated)
     }
-    return eliminated
+
+    return participantsEliminated
   }
 }
