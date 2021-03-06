@@ -1,6 +1,22 @@
 import { SizeItems } from '@/data-structures/common/collection-protocols'
 import { DequeueItem, EnqueueItems } from '@/data-structures/queues/queue-protocols'
 
+export class QueueSpyFactory {
+  private readonly state: any[] = []
+
+  buildSizeItemSpy (): QueueSizeItemsSpy {
+    return new QueueSizeItemsSpy(this.state)
+  }
+
+  buildDequeueItemSpy (): DequeueItemSpy {
+    return new DequeueItemSpy(this.state)
+  }
+
+  buildEnqueueItemSpy (): EnqueueItemsSpy {
+    return new EnqueueItemsSpy(this.state)
+  }
+}
+
 export class QueueSizeItemsSpy implements SizeItems {
   constructor (readonly allItems: any[]) {}
   callsCount: number = 0

@@ -1,6 +1,6 @@
 import { HotPotatoQueue } from '@/algorithms/hot-potato-queue'
 import { IllegalArgumentError } from '@/errors/illegal-argument-error'
-import { DequeueItemSpy, EnqueueItemsSpy, QueueSizeItemsSpy } from '@/tests/unit/mocks/mock-queue'
+import { DequeueItemSpy, EnqueueItemsSpy, QueueSizeItemsSpy, QueueSpyFactory } from '@/tests/unit/mocks/mock-queue'
 
 type SutTypes = {
   sut: HotPotatoQueue
@@ -12,11 +12,10 @@ type SutTypes = {
 
 const makeSut = (): SutTypes => {
   const participants: any[] = ['João', 'Ana', 'Fábio']
-  const sharedState: any[] = []
-  const enqueueSpy = new EnqueueItemsSpy(sharedState)
-  const dequeueSpy = new DequeueItemSpy(sharedState)
-  const queueSizeItemsSpy = new QueueSizeItemsSpy(sharedState)
-  // eslint-disable-next-line no-new
+  const queueSpyFactory = new QueueSpyFactory()
+  const enqueueSpy = queueSpyFactory.buildEnqueueItemSpy()
+  const dequeueSpy = queueSpyFactory.buildDequeueItemSpy()
+  const queueSizeItemsSpy = queueSpyFactory.buildSizeItemSpy()
   const sut = new HotPotatoQueue(enqueueSpy, dequeueSpy, queueSizeItemsSpy)
   return {
     sut,
@@ -39,7 +38,6 @@ describe('HotPotatoQueue', () => {
       }
       expect(error).toEqual(new IllegalArgumentError('steps', 0))
       expect(error.message).toEqual('O argumento 0 para steps é inválido.')
-      expect(error.name).toEqual('IllegalArgumentError')
     })
 
     test('Should call enqueue with correct values', () => {

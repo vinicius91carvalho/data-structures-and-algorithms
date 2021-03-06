@@ -35,7 +35,6 @@ describe('DecimalToAnotherBase', () => {
     }
     expect(error).toEqual(new IllegalArgumentError('toBase', 'base'))
     expect(error.message).toEqual('O argumento base para toBase é inválido.')
-    expect(error.name).toEqual('IllegalArgumentError')
   })
 
   test('Should make a DecimalToAnotherBase with base 36', () => {
