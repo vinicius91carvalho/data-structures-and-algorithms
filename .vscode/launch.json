@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceRoot}/node_modules/jest/bin/jest",
             "args": [
-                "--runInBand", "--coverage", "false", "--watch"
+                "--runInBand", "--coverage", "false", "--watch", "-c", "jest-unit.config.js"
             ],
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
